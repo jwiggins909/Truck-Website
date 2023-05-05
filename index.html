@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Truck Website</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="truck.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Truck Website</h1>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section id="home">
+        <h2>Welcome to Our Truck Website</h2>
+        <p>Explore our range of high-quality trucks for sale.</p>
+        <a href="#services">View our services</a>
+      </section>
+      <section id="about">
+        <h2>About Us</h2>
+        <p>
+          We are a leading provider of high-quality trucks for commercial and
+          personal use. Our team is committed to providing exceptional customer
+          service and delivering top-notch products.
+        </p>
+        <a href="#contact">Get in touch with us</a>
+      </section>
+      <section id="services">
+        <h2>Our Services</h2>
+        <ul>
+          <li>Sales of new and used trucks</li>
+          <li>Truck financing and leasing options</li>
+          <li>Truck maintenance and repair services</li>
+          <li>Parts and accessories for trucks</li>
+        </ul>
+        <a href="#gallery">View our gallery</a>
+      </section>
+      <section id="gallery">
+        <h2>Our Gallery</h2>
+        <div class="gallery-container">
+          <div class="gallery-wrapper">
+            <img
+              class="gallery-image"
+              src="images/2019-Chevrolet-Colorado-V6-Z71-front-three-quarter-in-motion-2.jpg"
+              alt="Image 1"
+            />
+            <img
+              class="gallery-image"
+              src="images/2019-Chevrolet-Colorado-V6-Z71-front-three-quarter-in-motion-3.jpg"
+              alt="Image 2"
+            />
+            <img
+              class="gallery-image"
+              src="images/2019-Chevrolet-Colorado-V6-Z71-rear-detail-6.jpg"
+              alt="Image 3"
+            />
+            <img
+              class="gallery-image"
+              src="images/2018-Toyota-Tacoma-V6-TRD-4x4-Off-Road-front-three-quarter-1.jpg"
+              alt="Image 4"
+            />
+            <img
+              class="gallery-image"
+              src="images/2018-Toyota-Tacoma-V6-TRD-4x4-Off-Road-front-three-quarter-2.jpg"
+              alt="Image 5"
+            />
+            <img
+              class="gallery-image"
+              src="images/2018-Toyota-Tacoma-V6-TRD-4x4-Off-Road-front-three-quarter-in-motion-2.jpg"
+              alt="Image 6"
+            />
+            <img
+              class="gallery-image"
+              src="images/2018-Toyota-Tacoma-V6-TRD-4x4-Off-Road-rear-three-quarter-in-motion-3.jpg"
+              alt="Image 7"
+            />
+            <img
+              class="gallery-image"
+              src="images/2019-Chevrolet-Colorado-2019-Honda-Ridgeline-2019-Ford-Ranger-2018-Toyota-Tacoma-V6-TRD-3.jpg"
+              alt="Image 8"
+            />
+            <img class="gallery-image" src="img/image-4.jpg" alt="Image 4" />
+          </div>
+          <div class="gallery-nav">
+            <button class="gallery-prev">Prev</button>
+            <button class="gallery-next">Next</button>
+          </div>
+        </div>
+
+        <a href="#contact">Contact us for more information</a>
+      </section>
+      <section id="contact">
+        <h2>Contact Us</h2>
+        <form action="submit-form.php" method="post">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" required></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2023 Truck Website. All rights reserved.</p>
+    </footer>
+  </body>
+  <script src="index.js"></script>
+</html>
