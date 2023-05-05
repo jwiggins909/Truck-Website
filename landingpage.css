@@ -1,0 +1,145 @@
+/* Global styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  /* Header styles */
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 36px;
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  
+  nav a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  /* Hero section styles */
+  .hero-image {
+    background-image: url('https://via.placeholder.com/800x400');
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .hero-text {
+    text-align: center;
+    color: #fff;
+  }
+  
+  .hero-text h2 {
+    margin-top: 0;
+  }
+  
+  .cta-button {
+    display: inline-block;
+    background-color: #fff;
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 20px;
+    font-weight: bold;
+  }
+  
+  .cta-button:hover {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  /* Feature section styles */
+  .truck-features {
+    padding: 50px;
+    background-color: #f2f2f2;
+  }
+  
+  .truck-features h2 {
+    text-align: center;
+    margin-top: 0;
+  }
+  
+  .feature-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 300px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+  }
+  
+  .feature-item img {
+    margin-bottom: 20px;
+  }
+  
+  /* Testimonial section styles */
+  .testimonials {
+    padding: 50px;
+    background-color: #fff;
+  }
+  
+  .testimonials h2 {
+    text-align: center;
+    margin-top: 0;
+  }
+  
+  .testimonial {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  
+  .testimonial img {
+    border-radius: 50%;
+    margin-bottom: 20px;
+    max-width: 100px;
+  }
+  
+  .testimonial blockquote {
+    font-style: italic;
+    margin: 0;
+  }
+  
+  .testimonial cite {
+    font-weight: bold;
+  }
+  
+  /* Footer styles */
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  footer p {
+    margin: 0;
+  }
+  
