@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="josh-styles.css" />
+    <style>
+      /* Additional CSS styles for the login form */
+      .container {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .container h2 {
+        text-align: center;
+        font-family: "Lora", serif;
+        margin-bottom: 20px;
+      }
+
+      #loginForm input[type="text"],
+      #loginForm input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+
+      #loginForm input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #4caf50;
+        color: #fff;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      #error {
+        color: red;
+        text-align: center;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="imgcontainer">
+      <img
+        src="images/2018-Toyota-Tacoma-V6-TRD-4x4-Off-Road-front-three-quarter-in-motion-2.jpg"
+        alt="Avatar"
+        class="avatar"
+      />
+    </div>
+    <div class="container">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <input type="text" id="username" placeholder="Username" />
+        <input type="password" id="password" placeholder="Password" />
+        <input type="submit" value="Login" />
+      </form>
+      <div id="error" class="error"></div>
+    </div>
+
+    <script>
+      // Function to parse the credentials file into an array of objects
+      function parseCredentialsFile(credentials) {
+        var lines = credentials.trim().split("\n");
+        var credentialsArray = [];
+
+        for (var i = 0; i < lines.length; i++) {
+          var line = lines[i];
+          var parts = line.split(",");
+
+          if (parts.length === 2) {
+            var username = parts[0].trim();
+            var password = parts[1].trim();
+            credentialsArray.push({ username: username, password: password });
+          }
+        }
+
+        return credentialsArray;
+      }
+
+      // Read the credentials file
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", "credentials.txt", true);
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          var credentials = xhr.responseText;
+          var credentialsArray = parseCredentialsFile(credentials);
+
+          document
+            .getElementById("loginForm")
+            .addEventListener("submit", function (event) {
+              event.preventDefault(); // Prevent form submission
+              var username = document.getElementById("username").value;
+              var password = document.getElementById("password").value;
+
+              // Validate username and password
+              var validCredentials = false;
+              for (var i = 0; i < credentialsArray.length; i++) {
+                var cred = credentialsArray[i];
+                if (username === cred.username && password === cred.password) {
+                  validCredentials = true;
+                  break;
+                }
+              }
+
+              if (validCredentials) {
+                // Successful login
+                window.location.href = "index.html"; // Redirect to dashboard page
+              } else {
+                // Invalid login
+                document.getElementById("error").textContent =
+                  "Invalid username or password.";
+              }
+            });
+        }
+      };
+      xhr.send();
+    </script>
+  </body>
+</html>
