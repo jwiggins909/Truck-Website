@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Page</title>
+  <style>
+    .container {
+      width: 300px;
+      margin: 0 auto;
+      padding-top: 100px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+
+    .error {
+      color: red;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Username">
+      <input type="password" id="password" placeholder="Password">
+      <input type="submit" value="Login">
+    </form>
+    <div id="error" class="error"></div>
+  </div>
+
+  <script>
+    // Function to parse the credentials file into an array of objects
+    function parseCredentialsFile(credentials) {
+      var lines = credentials.trim().split('\n');
+      var credentialsArray = [];
+
+      for (var i = 0; i < lines.length; i++) {
+        var line = lines[i];
+        var parts = line.split(',');
+
+        if (parts.length === 2) {
+          var username = parts[0].trim();
+          var password = parts[1].trim();
+          credentialsArray.push({ username: username, password: password });
+        }
+      }
+
+      return credentialsArray;
+    }
+
+    // Read the credentials file
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'credentials.txt', true);
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        var credentials = xhr.responseText;
+        var credentialsArray = parseCredentialsFile(credentials);
+
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+          event.preventDefault(); // Prevent form submission
+          var username = document.getElementById("username").value;
+          var password = document.getElementById("password").value;
+
+          // Validate username and password
+          var validCredentials = false;
+          for (var i = 0; i < credentialsArray.length; i++) {
+            var cred = credentialsArray[i];
+            if (username === cred.username && password === cred.password) {
+              validCredentials = true;
+              break;
+            }
+          }
+
+          if (validCredentials) {
+            // Successful login
+            window.location.href = "dashboard.html"; // Redirect to dashboard page
+          } else {
+            // Invalid login
+            document.getElementById("error").textContent = "Invalid username or password.";
+          }
+        });
+      }
+    };
+    xhr.send();
+  </script>
+</body>
+</
